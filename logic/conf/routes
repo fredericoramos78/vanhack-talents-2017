@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+
+GET    /                                                     controllers.IndexController.index
+GET    /api/version.json                                     controllers.IndexController.version
+
+POST   /api/auth/login.json                                  controllers.UsersController.postLogin
+GET    /api/users/:id                                        controllers.UsersController.getUser(id: Long)
+PUT    /api/users/register.json                              controllers.UsersController.putUser
+
+PUT    /api/topics/create.json                               controllers.TopicsController.putTopic
+GET    /api/topics/search.json                               controllers.TopicsController.getTopics
+GET    /api/topics/search/hot.json                           controllers.TopicsController.getHotTopics
+GET    /api/topics/search/latest.json                        controllers.TopicsController.getLatestTopics
+GET    /api/topics/user/:id/latest.json                      controllers.TopicsController.getMyLatestTopics(id: Long)
+GET    /api/topics/:id/comments/:page/list.json              controllers.TopicsController.getComments(id: Long, page: Int)
+PUT    /api/topics/:id/comments.json                         controllers.TopicsController.putComment(id: Long)

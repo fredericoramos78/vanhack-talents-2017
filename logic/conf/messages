@@ -1,0 +1,532 @@
+
+app.title=Concilie Fácil
+
+
+#############################
+# HTTP errors
+#############################
+http.error.401=Usuário ou senha incorretos.
+http.error.other=Ocorreu um erro interno. Tente novamente mais tarde.
+
+#############################
+# Login
+#############################
+
+login.message=Faça seu login
+login.username.title=e-mail
+login.password.title=senha
+login.login.action=Entrar
+
+#############################
+# Menu
+#############################
+menu.admin=Admin
+menu.admin.customers=Clientes
+menu.admin.bus=Filiais
+menu.user.profile=Meus dados
+menu.user.manageLogins=Usuários
+menu.user.manageGroups=Grupos
+menu.logout=Sair
+menu.toggle=Abrir/Fechar navegação
+menu.users.welcome=Início
+menu.users.transactions=Movimento
+menu.users.reconciliation=Conciliação
+menu.users.reconciliation.list=Pesquisar
+menu.users.reconciliation.imp=Importar
+menu.users.sales=Vendas
+menu.users.sales.summary=Resumo
+menu.users.sales.list=Pesquisar
+menu.users.sales.add=Adicionar manual
+menu.users.sales.imp=Importar
+menu.users.payments=Pagamentos
+menu.users.inconsistencies=Inconsistências
+
+
+#############################
+# General usage
+#############################
+forms.add=Adicionar
+forms.ok=Salvar
+forms.yes=Sim
+forms.confirm=Confirmar
+forms.cancel=Cancelar
+forms.close=Fechar
+forms.confirm=Confirmar
+forms.reset=Limpar
+forms.search=Pesquisar
+forms.filterBy=filtrar por
+forms.upload=Importar
+forms.delete.tooltip=Excluir permanentemente
+forms.edit.tooltip=Editar
+forms.ban.tooltip=Bloquear
+forms.unban.tooltip=Desbloquear
+
+errors.percent=Apenas números no formato 99,9999 (não precisa digitar o símbolo %).
+errors.numbersOnly=Digitar apenas números.
+errors.minlength=O campo deve ter pelo menos {0} caracteres.
+errors.emailPattern=Preencha com um e-mail válido.
+errors.zipDoestNotExist=Localidade/CEP não existe.
+errors.invalidCardNumber=Apenas os números e deve ter todas as 16 posições.
+
+forms.placeholders.numbersOnly=Apenas números
+forms.select.all.bus=Escolha uma filial
+forms.select.bus.selectOne=Escolha uma filial
+forms.select.all.dealers=Escolha uma adquirente
+forms.select.dealers.selectOne=Escolha uma adquirente
+forms.select.relationCode.selectOne=Escolha um estabelecimento
+forms.select.all.cardBrand=Escolha uma bandeira
+
+forms.calendar.previous=anterior
+forms.calendar.today=hoje
+forms.calendar.next=próximo
+
+list.norows=Nenhum registro encontrado.
+
+confirmationsModal.title=Confirmar ação
+
+#############################
+# Admin -> Customers
+#############################
+
+admin.customers.title=Clientes
+admin.customers.edit.title=Cliente
+admin.customers.add.title=Novo cliente
+admin.customers.list.filter.hideBlocked=Esconder bloqueados?
+admin.customers.list.id.title=#
+admin.customers.list.name.title=Nome
+admin.customers.list.displayName.title=Nome fantasia
+admin.customers.list.isCompany.title=É PF?
+admin.customers.list.isBlocked.title=Bloqueado?
+admin.customers.list.since.title=Desde
+admin.customers.list.buCount.title=Filiais
+admin.customers.list.name.placeholder=Insira o nome/razão social completo do cliente
+admin.customers.list.taxId.title=CPF/CNPJ
+admin.customers.list.taxId.placeholder=Digite o CPF/CNPJ (apenas números)
+admin.customers.list.actions.ban.message=Deseja realmente bloquear temporariamente este cliente?
+admin.customers.list.actions.unban.message=Deseja realmente desbloquear este cliente?
+admin.customers.list.actions.delete.message.1=Deseja realmente exlcuir permanentemente este cliente?
+admin.customers.list.actions.delete.message.2=ATENÇÃO! Esta ação não poderá ser desfeita.
+admin.customers.modal.customerTab.title=Cliente
+admin.customers.modal.addressTab.title=Endereço
+admin.customers.modal.contactTab.title=Contato
+admin.customers.modal.displayName.label=Nome fantasia
+admin.customers.modal.displayName.placeholder=O nome fantasia, quando o cliente for uma empresa
+admin.customers.modal.zipCode.label=CEP
+admin.customers.modal.streetName.label=Logradouro
+admin.customers.modal.streetNumber.label=Número
+admin.customers.modal.addrComplement.label=Complemento
+admin.customers.modal.addrDistrict.label=Bairro
+admin.customers.modal.cityName.label=Cidade
+admin.customers.modal.stateCode.label=UF
+admin.customers.modal.useFromCustomer.title=Copiar o contato da matriz?
+admin.customers.modal.userName.label=Usuário
+admin.customers.modal.userName.placeholder=Digite o nome do usuário master
+admin.customers.modal.emailAddress.label=E-mail
+admin.customers.modal.emailAddress.placeholder=O endereço de email do usuário master
+admin.customers.modal.phone.label=Fone
+admin.customers.modal.facSimile.label=Fax
+admin.customers.modal.website.label=Website
+admin.customers.errorLoadingCustomer=Erro durante a leitura dos dados de cliente.
+admin.customers.buList.title=Filiais de
+admin.customers.buList.headOffice.tooltip=Esta é a matriz.
+admin.customers.buList.dealerRelations.title=Adquirentes
+admin.customers.buList.liveRates.title=Taxas
+admin.customers.buList.actions.delete.message.1=Deseja realmente exlcuir permanentemente esta filial?
+admin.customers.errorLoadingBusinessUnit=Erro durante a leitura dos dados de filiais.
+
+#############################
+# Admin -> Rates
+#############################
+
+admin.rates.modal.title=Lista de taxas
+admin.rates.modal.hideOverriden.label=Mostrar apenas taxas vigentes
+admin.rates.modal.notApplicable=n/a
+admin.rates.modal.dealer.label=Adquirente
+admin.rates.modal.dealer.chooseOne.placeholder=Escolha um
+admin.rates.modal.cardBrand.label=Bandeira
+admin.rates.modal.cardBrand.all.label=Todas as bandeiras
+admin.rates.modal.startsAt.label=De
+admin.rates.modal.endsAt.label=Até
+admin.rates.modal.credit.label=Crédito
+admin.rates.modal.credit2to6.label=Crédito (2/6)
+admin.rates.modal.credit7to12.label=Crédito (7/12)
+admin.rates.modal.debt.label=Débito
+admin.rates.modal.inAdvance.label=Antecipação
+admin.rates.modal.remove.placeholder=Encerrar esta configuração de taxas
+admin.rates.modal.confirmation.title=Confirma o término da taxa?
+admin.rates.modal.confirmation.allCardBrands=todas as bandeiras
+
+#############################
+# Admin -> Dealer relations
+#############################
+
+admin.relations.modal.title=Relacionamentos com adquirentes
+admin.relations.modal.hideOverriden.label=Apenas relacionamentos ativos
+admin.relations.modal.dealer.label=Adquirente
+admin.relations.modal.relationCode.label=Cód. Relacionamento
+admin.relations.modal.startsAt.label=Início
+admin.relations.modal.endsAt.label=Término
+admin.relations.modal.remove.placeholder=Encerrar este relacionamento
+admin.relations.modal.confirmation.title=Confirma o encerramento?
+
+
+#############################
+# Users -> Welcome
+#############################
+
+users.landing.title=Bem vindo
+users.landing.transactions.title=Movimento
+users.landing.transactions.title.received=Total recebido nos últimos 30 dias foi
+users.landing.transactions.title.received.notFound=Não existe movimentação recebida nos últimos 30 dias.
+users.landing.transactions.title.tobeReceived=Total à receber nos próximos 30 dias é
+users.landing.transactions.title.tobeReceived.notFound=Não existe movimentação à receber nos próximos 30 dias.
+users.landing.reconciliation.title=Conciliação
+users.landing.reconciliation.total.title=Total de vendas conciliadas nos últimos 30 dias foi
+users.landing.reconciliation.title.notFound=Não existem vendas conciliadas nos últimos 30 dias.
+users.landing.payments.title=Pagamentos
+users.landing.payments.total.title=Total de pagamentos nos últimos 30 dias foi
+users.landing.payments.title.notFound=Não existem pagamentos recebidos nos últimos 30 dias.
+users.landing.inconsistencies.title=Inconsistências
+users.landing.inconsistencies.total.title=Total de inconsistências nos últimos 30 dias foi
+users.landing.inconsistencies.title.notFound=Não existem inconsistências nos últimos 30 dias.
+
+#############################
+# Users -> Profile
+#############################
+
+users.profile.title=Meu Perfil
+users.profile.name=Nome
+users.profile.email=E-mail
+users.profile.customer=Cliente
+users.profile.isMaster=Sou gestor da conta.
+users.profile.changePassword=Alterar a senha
+users.profile.changepassword.ok=Senha alterada com sucesso.
+users.profile.modal.title=Alteração de senha
+users.profile.modal.currentPassword=Senha atual
+users.profile.modal.newPassword=Nova senha
+users.profile.modal.confirmPassword=Repita a senha
+
+#############################
+# Users -> Transactions
+#############################
+
+users.transactions.title=Movimento
+users.transactions.search.subtitle=Filtro de pesquisa
+users.transactions.search.period=Período
+users.transactions.search.period.placeholder=Selecione um período para visualizar
+users.transactions.search.bu=Filial
+users.transactions.search.dealer=Adquirente
+users.transactions.search.status=Status
+users.transactions.search.status.received=recebido
+users.transactions.search.status.tobeReceived=à receber
+users.transactions.summary.subtitle=Resumo do movimento
+users.transactions.list.date=Data
+users.transactions.list.status=Status
+users.transactions.list.dealer=Adquirente
+users.transactions.list.amount=Valor
+users.transactions.details.title=Movimentações em
+users.transactions.details.title.2=de
+users.transactions.detail.nsuNumber=Cód. transação
+users.transactions.detail.amount=Valor
+users.transactions.detail.sellType=Venda a
+users.transactions.detail.installmentNbr=Parc.
+users.transactions.detail.buName=Filial
+
+
+#############################
+# Users -> Reconciliation
+#############################
+
+users.reconciliation.title=Conciliação
+users.reconciliation.search.subtitle=Filtro de pesquisa
+users.reconciliation.search.simpleTab=Básica
+users.reconciliation.search.fullTab=Avançada
+users.reconciliation.search.bu=Filial
+users.reconciliation.search.period=Período
+users.reconciliation.search.amount=Valor
+users.reconciliation.search.nsuNumber=Cód. transação
+users.reconciliation.search.sellType=Venda a
+users.reconciliation.search.sellType.credit=crédito
+users.reconciliation.search.sellType.debt=débito
+users.reconciliation.search.sellType.other=outros
+users.reconciliation.search.dealer=Adquirente
+users.reconciliation.search.reconciliation=Conciliação
+users.reconciliation.search.reconciliation.auto=automática
+users.reconciliation.search.reconciliation.manual=manual
+users.reconciliation.list.dateTime=Data/Hora
+users.reconciliation.list.nsu=Cód. transação
+users.reconciliation.list.dealer=Adquirente
+users.reconciliation.list.type=Tipo
+users.reconciliation.list.installments=Parc.
+users.reconciliation.list.amount=Valor
+users.reconciliation.list.rate=Taxa
+users.reconciliation.list.typeOfReconciliation=Conciliação
+users.reconciliation.upload.title=Importar
+
+#############################
+# Users -> Sales
+#############################
+
+users.sales.search.subtitle=Filtro de pesquisa
+users.sales.search.simpleTab=Básica
+users.sales.search.fullTab=Avançada
+users.sales.search.date=Data
+users.sales.search.nsuNumber=Cód. transação
+users.sales.search.amount=Valor
+users.sales.search.period=Período
+users.sales.search.period.placeholder=Selecione um período para visualizar
+users.sales.search.bu=Filial
+users.sales.search.dealer=Adquirente
+users.sales.search.sellType=Venda a
+users.sales.search.sellType.credit=crédito
+users.sales.search.sellType.debt=débito
+users.sales.search.sellType.other=outros
+users.sales.search.status=Status
+users.sales.search.status.done=aprovada
+users.sales.search.status.denied=negada
+users.sales.list.title=Vendas
+users.sales.list.dateTime=Data/Hora
+users.sales.list.dateTime.placeholder=A data e hora da venda
+users.sales.list.nsu=Cód. transação
+users.sales.list.nsu.placeholder=O código da transação/CV
+users.sales.list.dealer=Adquirente
+users.sales.list.brand=Bandeira
+users.sales.list.transactionType=Tipo
+users.sales.list.amount=Valor
+users.sales.list.rate=Taxa
+users.sales.list.installments=Parc.
+users.sales.list.installments.placeholder=O número de parcelas
+users.sales.list.status=Status
+users.sales.list.bu=Filial
+users.sales.summary.title=Resumo de
+users.sales.summary.date=Data
+users.sales.summary.results.title=Resumo diário das vendas
+users.sales.summary.payments.subtitle=Informações de pagamentos
+users.sales.summary.total=Valor total no dia
+users.sales.summary.noData=Não existem vendas para o dia selecionado.
+users.sales.add.title=Nova venda manual
+users.sales.upload.title=Importar
+users.sales.upload.placeholder=Escolha um arquivo
+users.sales.upload.calendar.title=vendas em
+users.sales.upload.importedAt=Importado
+users.sales.upload.filename=Arquivo
+users.sales.upload.refDate=Vendas de
+users.sales.upload.status=Status
+users.sales.add.buSection.subtitle=Informações do estabelecimento
+users.sales.add.sellSection.nextStep=Os dados do estabelecimento devem ser preenchidos antes de seguirmos para as informações da venda.
+users.sales.add.sellSection.subtitle=Informações da venda
+users.sales.list.relationCode=Estabelecimento
+users.sales.list.sellQtty=Qtde CV
+users.sales.add.installments=Parcelas
+users.sales.add.customerName=Cliente
+users.sales.add.cardNumber=Nro cartão
+users.sales.add.sellType=Venda a
+users.sales.add.posNumber=Código do POS
+users.sales.add.authCode=Autorização
+users.sales.add.success=Uma nova venda manual foi salva com sucesso.
+users.sales.list.details.title=Detalhes da venda
+users.sales.list.details.status=Status
+users.sales.list.details.capturedByMedium=Meio de captura
+
+#############################
+# Users -> Payments
+#############################
+
+users.payments.list.title=Pagamentos
+users.payments.search.subtitle=Filtro de pesquisa
+users.payments.search.simpleTab=Básica
+users.payments.search.fullTab=Avançada
+users.payments.search.bu=Filial
+users.payments.search.nsuNumber=Cód. transação
+users.payments.search.amount=Valor
+users.payments.search.period=Período
+users.payments.search.period.sellType=Venda a
+users.payments.search.period.sellType.credit=crédito
+users.payments.search.period.sellType.debt=débito
+users.payments.search.period.sellType.other=outros
+users.payments.search.dealer=Adquirente
+users.payments.list.dateTime=Envio bco.
+users.payments.list.dateTime.tooltip=Data em que a adquirente enviou o pagamento para o banco.
+users.payments.list.dealer=Adquirente
+users.payments.list.balanceId=Cód. Resumo
+users.payments.list.bankCode=Banco
+users.payments.list.bankBranch=Agência
+users.payments.list.bankAccount=Conta
+users.payments.list.amount=Valor bruto
+users.payments.list.netAmount=Valor líquido
+users.payments.list.sellQtty=Qtde CV
+users.payments.details.title=Transações pagas
+users.payments.details.grossAmount=Valor bruto
+users.payments.details.ratePerct=Taxa (%)
+users.payments.details.rateAmount=Valor da taxa
+users.payments.details.netAmount=Valor pago
+users.payments.details.comissionAmount=Comissão
+users.payments.details.comissionPerct=% Comissão
+users.payments.details.payedAt=Pago em
+users.payments.details.dealer=Adquirente
+users.payments.details.nsuNumber=Cód. transação
+users.payments.details.transactionType=Tipo da venda
+users.payments.details.installment=Parcela
+users.payments.details.installment.of=de
+users.payments.details.capturedByMedium=Meio de captura
+users.payments.details.list.subtitle=Lista das vendas
+
+#############################
+# Users -> Inconsistencies
+#############################
+
+users.inconsistencies.title=Inconsistências
+users.inconsistencies.search.simpleTab=Básica
+users.inconsistencies.search.fullTab=Avançada
+users.inconsistencies.search.nsuNumber=Cód. transação/resumo
+users.inconsistencies.search.amount=Valor
+users.inconsistencies.search.period=Período
+users.inconsistencies.search.bu=Filial
+users.inconsistencies.search.sellType=Venda a
+users.inconsistencies.search.sellType.credit=crédito
+users.inconsistencies.search.sellType.debt=débito
+users.inconsistencies.search.sellType.other=outros
+users.inconsistencies.search.dealer=Adquirente
+users.inconsistencies.search.reconciliation=Conciliação
+users.inconsistencies.search.reconciliation.auto=automática
+users.inconsistencies.search.reconciliation.manual=manual
+users.inconsistencies.search.subtitle=Filtro de pesquisa
+users.inconsistencies.list.dateTime=Data/Hora
+users.inconsistencies.list.nsu=Cód. transação/resumo
+users.inconsistencies.list.incType=Cenário de
+users.inconsistencies.list.dealer=Adquirente
+users.inconsistencies.list.type=Tipo
+users.inconsistencies.list.inc=Inconsistência(s)
+users.inconsistencies.list.inc.many=Mais de uma inconsistência.
+users.inconsistencies.list.amount=Valor
+users.inconsistencies.list.incType.sale=Vendas
+users.inconsistencies.list.incType.payment=Pagamento
+users.inconsistencies.list.installmentQtty=Parcelas
+users.inconsistencies.details.title=Detalhes da inconsistência
+users.inconsistencies.details.listOfInconsistencies=Inconsistências encontradas
+users.inconsistencies.details.manualConciliation=Conciliar manualmente
+users.inconsistencies.details.paymentStatus.label=Pagamento
+users.inconsistencies.details.paymentStatus.at=em
+users.inconsistencies.details.fromInstallment=Referente à parcela
+users.inconsistencies.details.toInstallment=Até a parcela
+users.inconsistencies.details.sale.subtitle=Venda
+users.inconsistencies.details.transaction.subtitle=CV
+users.inconsistencies.details.schedule.subtitle=Previsão
+users.inconsistencies.details.payment.subtitle=Pagamento
+
+#############################
+# Users -> User Mgmt
+#############################
+
+users.mgmt.user.list.title=Usuários
+users.mgmt.user.search.subtitle=Filtro de pesquisa
+users.mgmt.user.search.username=Nome
+users.mgmt.user.search.email=E-mail
+users.mgmt.user.search.status=Status
+users.mgmt.user.search.status.inactive=inativo
+users.mgmt.user.search.status.active=ativo
+users.mgmt.user.search.status.inactiveSince=Desde
+users.mgmt.user.list.username=Nome
+users.mgmt.user.list.username.isMaster=Este é o usuário gestor da conta.
+users.mgmt.user.list.email=E-mail
+users.mgmt.user.list.status=Status
+users.mgmt.user.list.role=Acesso
+users.mgmt.user.list.role.placeholder=Quantidade de filiais que este usuário possui acesso.
+users.mgmt.user.list.role.none=nenhuma
+users.mgmt.user.list.role.all=todas
+users.mgmt.user.list.createdAt=Criado em
+users.mgmt.user.list.status.inactivate.tooltip=inativar este usuário
+users.mgmt.user.list.status.reactivate.tooltip=reativar este usuário
+users.mgmt.user.list.status.master.tooltip=tornar este usuário o gestor da conta
+
+users.mgmt.user.list.confirmation.title=Confirmação de
+users.mgmt.user.list.confirmation.inactivation=inativação
+users.mgmt.user.list.confirmation.reactivation=reativação
+users.mgmt.user.list.confirmation.masterSwitching=troca de gestor
+users.mgmt.user.list.confirmation.question.1=Tem certeza que deseja
+users.mgmt.user.list.confirmation.question.inactivate=inativar
+users.mgmt.user.list.confirmation.question.reactivate=reativar
+users.mgmt.user.list.confirmation.question.masterSwitching=alterar o gestor da conta
+users.mgmt.user.list.confirmation.question.2=este usuário
+users.mgmt.user.list.confirmation.question.masterSwitching.2=Ao confirmar esta ação você será automaticamente desconectado e deverá fazer o login novamente.
+
+users.mgmt.user.role.title=Perfil para
+users.mgmt.user.role.list.buName=Filial
+users.mgmt.user.role.list.role=Perfil
+users.mgmt.user.role.options.withAccess=Permitir acesso
+
+admin.mgmt.user.edit.title=Usuário
+admin.mgmt.user.add.title=Novo usuário
+admin.mgmt.user.name.title=Nome
+admin.mgmt.user.email.title=E-mail
+
+#############################
+# Users -> Group Mgmt
+#############################
+
+users.mgmt.group.list.title=Grupos
+users.mgmt.group.search.subtitle=Filtros de pesquisa
+users.mgmt.group.search.name=Nome
+users.mgmt.group.search.bu=Filial
+users.mgmt.group.list.name=Nome
+users.mgmt.group.list.buCount=Qtde filiais
+users.mgmt.group.list.userCount=Qtde usuários
+users.mgmt.group.list.createdAt=Criado em
+
+
+#############################
+# Business exception messages
+#############################
+
+cf.exception.business.1001=O cliente com CPF/CNPJ {0} já está em uso.
+cf.exception.business.1002=O cliente com CPF/CNPJ {0} não existe.
+cf.exception.business.1003=O 'id' recebido e carregado do banco de dados não são iguais.
+cf.exception.business.1004=Para atualizar um cliente o seu 'id' deve ser informado.
+cf.exception.business.1005=Um novo cliente não pode possuir um 'id'.
+cf.exception.business.1006=O valor {0} não é um CPF/CNPJ válido.
+cf.exception.business.1007=O cliente {0} não existe.
+cf.exception.business.1008=É obrigatório a inclusão de um contato na criação do cliente.
+cf.exception.business.1009=É obrigatório a inclusão de um endereço na criação do cliente.
+cf.exception.business.1010=A filial {1} do cliente {0} não existe.
+cf.exception.business.1011=Para atualizar uma filial o seu 'id' deve ser informado.
+cf.exception.business.1012=Uma nova filial não pode possuir um 'id'.
+cf.exception.business.1013=É obrigatório a inclusão de um contato na criação de uma filial.
+cf.exception.business.1014=É obrigatório a inclusão de um endereço na criação de uma filial.
+cf.exception.business.1015=A filial com o CPF/CNPJ {0} já está em uso.
+cf.exception.business.1016=O CPF/CNPJ {0} está associado a um cliente/filial que está atualmente excluído. Chame um administrador.
+cf.exception.business.1017=Para atualizar uma filial o seu 'id' deve ser informado.
+cf.exception.business.1018=A adquirente {0} não existe.
+cf.exception.business.1019=Você não possui acesso à filial #{0};
+cf.exception.business.1020=Você não possui permissão para vislizar nenhuma filial.
+cf.exception.business.2001=Usuário {0} não existe.
+cf.exception.business.2002=Usuário {0} não é gestor desta conta.
+cf.exception.business.2003=Erro ao atribuir a opção de gestor ao usuário {0}.
+cf.exception.business.2004=A filial {0} não existe.
+cf.exception.business.2005=O endereço de email {0} já está em uso.
+cf.exception.business.2006=Erro ao criar o registro de permissão para o usuário #{0}.
+cf.exception.business.2007=Você não possui acesso a nenhuma filial. Entre em contato com o gestor da conta.
+cf.exception.business.3001=Código do pagamento não informado.
+cf.exception.business.3002=A bandeira com o código {0} não existe.
+cf.exception.business.3003=A adquirente com o código {0} não existe.
+cf.exception.business.3004=A filial com o código {0} não existe.
+cf.exception.business.3005=A inconsistência com a chave {0} não existe.
+cf.exception.business.3006=O arquivo {0} não existe.
+cf.exception.business.3007=Erro durante o upload do arquivo.
+cf.exception.business.3008=Este usuário deve ter acesso a alguma filial.
+cf.exception.business.3009=Usuário sem acesso à filial cujo código de estabelecimento é {0}.
+
+
+#############################
+# Rule codes
+#############################
+rules.1=Venda sem um CV correspondente na operadora.
+rules.2=O CV não possui uma venda correspondente.
+rules.3.1=O valor entre a venda e o CV é diferente.
+rules.3.2=O tipo de transação entre a venda e o CV é diferente.
+rules.3.3=A forma de pagamento da venda e do CV são diferentes.
+rules.3.4=O número de parcelas é diferente entre a venda e o CV.
+rules.3.5=Não foi encontrada taxa de comissão para a data desta venda.
+rules.3.6=Não foi encontrada taxa de comissão para este tipo de venda na data em que ela ocorreu.
+rules.3.7=A taxa de comissão encontrada foi de {0}% porém era esperada a uma taxa de {1}%.
+rules.4.1=O pagamento foi realizado depois da data prevista.
+rules.4.2=Um pagamento previsto não foi realizado.
