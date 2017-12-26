@@ -13,5 +13,6 @@ GET    /api/topics/search.json                               controllers.TopicsC
 GET    /api/topics/search/hot.json                           controllers.TopicsController.getHotTopics
 GET    /api/topics/search/latest.json                        controllers.TopicsController.getLatestTopics
 GET    /api/topics/user/:id/latest.json                      controllers.TopicsController.getMyLatestTopics(id: Long)
+GET    /api/topics/:id/info.json                             controllers.TopicsController.getTopic(id: Long)
 GET    /api/topics/:id/comments/:page/list.json              controllers.TopicsController.getComments(id: Long, page: Int)
 PUT    /api/topics/:id/comments.json                         controllers.TopicsController.putComment(id: Long)

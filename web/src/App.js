@@ -7,11 +7,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'simple-line-icons/css/simple-line-icons.css';
 
 // Import Main styles for this application & temp fix for reactstrap
-import '../scss/style.scss'
+import '../scss/style.scss';
 import '../scss/core/_dropdown-menu-right.scss';
-// Import Billcheckout & other specific styles
-import '../scss/billcheckout.scss';
-import '../node_modules/react-big-calendar/lib/css/react-big-calendar.css';
 
 // App basic structure
 import Header from './views/Template/Header/';
@@ -20,6 +17,7 @@ import Footer from './views/Template/Footer/';
 // Layout components
 import Home from './views/Home/';
 import SearchResults from './views/Search/';
+import TopicHistory from './views/Topic/TopicHistory';
 // Other views
 import Page404 from './views/Pages/Page404/';
 import Page500 from './views/Pages/Page500/';
@@ -55,6 +53,7 @@ class App extends Component {
                                 <Switch>
                                     <Route exact path="/home" component={Home}/>
                                     <Route exact path="/search" component={SearchResults}/>
+                                    <Route exact path="/topic/:topicId" component={TopicHistory}/>
                                     // error pages
                                     <Route exact path="/404" name="Page 404" component={Page404}/>
                                     <Route exact path="/500" name="Page 500" component={Page500}/>

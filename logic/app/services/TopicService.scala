@@ -9,6 +9,8 @@ trait TopicService {
 
     def createTopic(t: Topic): Future[Option[Topic]]
 
+    def searchTopic(topicId: Long): Future[Option[Topic]]
+
     def searchTopics(keywords: Seq[String]): Future[Seq[Topic]]
 
     def listHotTopics(): Future[Seq[Topic]]

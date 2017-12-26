@@ -35,7 +35,7 @@ class UsersController @Inject() (mcc: MessagesControllerComponents, conf: Config
         }
     }
 
-    def getUser(id: Long) = Action.async(parse.json) { request =>
+    def getUser(id: Long) = Action.async { request =>
         userService.searchUser(id).map { u =>
             Ok(Json.toJson(u))
         } recover {

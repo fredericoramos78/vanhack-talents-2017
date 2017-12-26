@@ -27,7 +27,7 @@ class AuthenticatorServiceImpl @Inject() (repo: UserRepository, cp: ConnectionPr
                     u
                 } else {
                     LOGGER.warn(s"[AuthenticatorService.authenticate] Incorrect password for user #${emailAddress}")
-                    null
+                    throw new IllegalStateException("Incorrect user or password")
                 }
             } getOrElse {
                 LOGGER.warn(s"[AuthenticatorService.authenticate] User #${emailAddress} not registered")

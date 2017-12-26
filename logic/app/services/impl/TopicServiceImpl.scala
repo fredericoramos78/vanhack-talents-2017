@@ -24,7 +24,20 @@ class TopicServiceImpl @Inject()(topicRepo: TopicRepository, commentRepo: Commen
         try {
             c = cp.openTransaction()
             LOGGER.debug(s"[TopicService.createTopic] Creating a new topic for user ${t.owner.toString()}")
-            topicRepo.insert(t).map { t.inserted(_) }
+            topicRepo.insert(t).map {
+                t.inserted(_)
+            }
+        } finally {
+            cp.commitTransaction(c)
+        }
+    }
+
+    override def searchTopic(topicId: Long) = Future {
+        implicit var c: Connection = null
+        try {
+            c = cp.openTransaction()
+            LOGGER.debug(s"[TopicService.searchTopic] Searching topic with id #${topicId}")
+            topicRepo.select(topicId)
         } finally {
             cp.commitTransaction(c)
         }
@@ -88,7 +101,9 @@ class TopicServiceImpl @Inject()(topicRepo: TopicRepository, commentRepo: Commen
                 commentRepo.insert(comment, topicId) map { cmm =>
                     if (cmm.isDefined && this.updateTopicCounters(topicId, comment.createdAt)) {
                         cmm
-                    } else { None }
+                    } else {
+                        None
+                    }
                 }
             } getOrElse {
                 Future.failed(throw new IllegalArgumentException(s"Topic #${topicId} does not exist"))

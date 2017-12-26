@@ -75,6 +75,14 @@ class TopicsController @Inject() (mcc: MessagesControllerComponents, conf: Confi
         }
     }
 
+    def getTopic(topicId: Long) = Action.async { request =>
+        topicService.searchTopic(topicId).map { t =>
+            Ok(Json.toJson(t))
+        } recover {
+            case ex: Throwable => this.answerWithError(ex)
+        }
+    }
+
     def putComment(topicId: Long) = Action.async(parse.json) { request =>
         request.body.validate[CreateCommentForm](CreateCommentForm.JSON_READER).map { form =>
             val comment = new Comment(topicId, form.userId, form.comment)
@@ -89,7 +97,7 @@ class TopicsController @Inject() (mcc: MessagesControllerComponents, conf: Confi
         }
     }
 
-    def getComments(topicId: Long, pageId: Int) = Action.async(parse.json) { request =>
+    def getComments(topicId: Long, pageId: Int) = Action.async { request =>
         val limit: Int = 25
         val offset: Int = (pageId - 1) * limit
         topicService.listComments(topicId, offset, limit).map { c =>

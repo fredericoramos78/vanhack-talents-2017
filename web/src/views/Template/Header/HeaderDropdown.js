@@ -16,6 +16,7 @@ class HeaderDropdown extends Component {
 
         this.state = {
             isLoggedIn: false,
+            userId: -1,
             dropdownOpen: false,
             loginModalOpen: false,
             registerModalOpen: false
@@ -25,15 +26,15 @@ class HeaderDropdown extends Component {
         this.toggleRegisterModal = this.toggleRegisterModal.bind(this);
     }
 
-    toggleLoginModal() {
-        this.setState({
-            loginModalOpen: !this.state.loginModalOpen
-        });
-    }
-
     toggleRegisterModal() {
         this.setState({
             registerModalOpen: !this.state.registerModalOpen
+        });
+    }
+
+    toggleLoginModal() {
+        this.setState({
+            loginModalOpen: !this.state.loginModalOpen
         });
     }
 
@@ -46,50 +47,37 @@ class HeaderDropdown extends Component {
     dropAccnt() {
         if (this.state.isLoggedIn) {
             return (
-                <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
-                    <DropdownToggle nav>
-                        <div>
-                            <i className="icon-user icons font-2xl d-block mt-4 header-user"></i>
-                        </div>
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                        <DropdownItem><i className="fa fa-wrench"></i> Preferências</DropdownItem>
-                        <DropdownItem>
-                            <a href="javascript:void(0)" onClick={this.props.onLogout}>
-                                <i className="fa fa-lock"></i> Sair
-                            </a>
-                        </DropdownItem>
-                    </DropdownMenu>
-                </Dropdown>
+                <DropdownMenu right>
+                    <DropdownItem>
+                        <a href="javascript:void(0)" onClick={this.props.onLogout}>
+                            <i className="fa fa-lock"></i> Logoff
+                        </a>
+                    </DropdownItem>
+                </DropdownMenu>
             );
         } else {
             return (
                 <div>
-                    <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
-                        <DropdownToggle nav>
-                            <div>
-                                <i className="icon-user icons font-2xl d-block mt-4 header-user"></i>
-                            </div>
-                        </DropdownToggle>
-                        <DropdownMenu right>
-                            <DropdownItem>
-                                <a href="javascript:void(0)" onClick={this.toggleLoginModal}>
-                                    <i className="fa fa-unlock"></i> Login
-                                </a>
-                            </DropdownItem>
-                            <DropdownItem>
-                                <a href="javascript:void(0)" onClick={this.toggleRegisterModal}>
-                                    <i className="fa fa-user"></i> Registrar
-                                </a>
-                            </DropdownItem>
-                        </DropdownMenu>
-                    </Dropdown>
+                    <DropdownMenu right>
+                        <DropdownItem>
+                            <a href="javascript:void(0)" onClick={this.toggleLoginModal}>
+                                <i className="fa fa-unlock"></i> Login
+                            </a>
+                        </DropdownItem>
+                        <DropdownItem>
+                            <a href="javascript:void(0)" onClick={this.toggleRegisterModal}>
+                                <i className="fa fa-user"></i> Register
+                            </a>
+                        </DropdownItem>
+                    </DropdownMenu>
                     <Login isOpen={this.state.loginModalOpen}
-                           handleOnLogin={this.toggleLoginModal}
-                           handleModalDismiss={this.toggleLoginModal}/>
+                           isLoggedIn={this.state.isLoggedIn}
+                           userId={this.state.userId}
+                           handleCloseModal={this.toggleLoginModal}/>
                     <Register isOpen={this.state.registerModalOpen}
-                              handleOnRegister={this.toggleRegisterModal}
-                              handleModalDismiss={this.toggleRegisterModal}/>
+                              isLoggedIn={this.state.isLoggedIn}
+                              userId={this.state.userId}
+                              handleCloseModal={this.toggleRegisterModal}/>
                 </div>
             );
         }
@@ -98,7 +86,14 @@ class HeaderDropdown extends Component {
     render() {
         const {attributes} = this.props;
         return (
-            this.dropAccnt()
+            <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggleDropdown}>
+                <DropdownToggle nav>
+                    <div>
+                        <i className="icon-user icons font-2xl d-block mt-4 header-user"></i>
+                    </div>
+                </DropdownToggle>
+                    {this.dropAccnt()}
+            </Dropdown>
         );
     }
 }

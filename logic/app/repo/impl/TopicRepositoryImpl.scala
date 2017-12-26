@@ -28,7 +28,7 @@ trait MySQLTopicRepository extends AnyRDBMSRepository[Topic] {
         }
     }
 
-    val INSERT_SQL = "INSERT INTO topic (user_id, title, question) VALUES (:userId, :title, :question)"
+    val INSERT_SQL = "INSERT INTO topic (user_id, title, question) VALUES ({userId}, {title}, {question})"
     override def insert(t: Topic)(implicit conn: Connection) = {
         t.owner.id.map { userId =>
             SQL(INSERT_SQL)
@@ -42,7 +42,7 @@ trait MySQLTopicRepository extends AnyRDBMSRepository[Topic] {
     val SELECT_SQL =
         """SELECT id, created_at, title, question, user_id, full_name, email_address, comments_count, last_commented_at
           |FROM v_topics_and_users WHERE 1=1 """.stripMargin
-    val WHERE_ID = "AND id=:id"
+    val WHERE_ID = "AND id={id}"
     val SELECT_BY_PK = SELECT_SQL.concat(WHERE_ID)
     override def select(id: Long)(implicit conn: Connection) = {
         SQL(SELECT_BY_PK)
@@ -67,7 +67,7 @@ class TopicRepositoryImpl @Inject()(ec: ExecutionContexts) extends TopicReposito
     val SELECT_SORTBY_SQL =
         """SELECT id, created_at, title, question, user_id, full_name, email_address, comments_count, last_commented_at
           |FROM v_topics_and_users WHERE 1=1 """.stripMargin
-    val WHERE_USERID = " AND user_id=:userId "
+    val WHERE_USERID = " AND user_id={userId} "
     val SELECT_SORTBY_WITH_USER_SQL = SELECT_SORTBY_SQL.concat(WHERE_USERID)
 
     override def selectSortedBy(field: String, user: Option[User], limit: Int)(implicit conn: Connection) = {
@@ -88,7 +88,7 @@ class TopicRepositoryImpl @Inject()(ec: ExecutionContexts) extends TopicReposito
     val UPDATE_COUNTERS_SQL =
         """UPDATE topics SET
           |comments_count=comments_count+1, last_commented_at=:commentTimestamp
-          |WHERE id=:topicId """.stripMargin
+          |WHERE id={topicId} """.stripMargin
 
     override def updateCommentCounter(topicId: Long, commentTimestamp: LocalDateTime)(implicit conn: Connection) = {
         SQL(UPDATE_COUNTERS_SQL)

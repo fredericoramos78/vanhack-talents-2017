@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Moment from 'react-moment';
+import { Link } from 'react-router-dom';
 
 class SingleTopic extends Component {
 
@@ -25,7 +26,7 @@ class SingleTopic extends Component {
     render() {
         const thisTopic = this.props.topicInfo;
         return (
-            <div>
+            <Link to={'/topic/'+thisTopic.id}>
                 <div className="message">
                     <div className="py-3 pb-5 mr-3 float-left">
                         <div className="avatar">
@@ -39,11 +40,13 @@ class SingleTopic extends Component {
                         <small className="text-muted">{thisTopic.owner.fullName}</small>
                         {this.renderCommentCountOrLastCommentedAt()}
                     </div>
-                    <div className="text-truncate font-weight-bold">{thisTopic.title}</div>
+                    <div className="text-truncate font-weight-bold">
+                        {thisTopic.title}
+                    </div>
                     <small className="text-muted">{thisTopic.question}</small>
                 </div>
                 <hr/>
-            </div>
+            </Link>
         );
     }
 }

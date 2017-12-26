@@ -15,7 +15,7 @@ class UserRepositoryImpl extends UserRepository {
         }
     }
 
-    val INSERT_SQL = "INSERT INTO users (full_name, email_address) VALUES (:fullName, :emailAddress)"
+    val INSERT_SQL = "INSERT INTO users (full_name, email_address) VALUES ({fullName}, {emailAddress})"
     override def insert(u: User)(implicit conn: Connection) = {
         SQL(INSERT_SQL)
             .on('fullName -> u.fullName, 'emailAddress -> u.emailAddress)
@@ -23,7 +23,7 @@ class UserRepositoryImpl extends UserRepository {
     }
 
     val SELECT_SQL = "SELECT id, full_name, email_address FROM users WHERE 1=1 "
-    val WHERE_ID = "id=:id"
+    val WHERE_ID = " AND id={id} "
     val SELECT_BY_PK = SELECT_SQL.concat(WHERE_ID)
     override def select(id: Long)(implicit conn: Connection) = {
         SQL(SELECT_BY_PK)
@@ -31,7 +31,7 @@ class UserRepositoryImpl extends UserRepository {
             .as(USER_READER.singleOpt)
     }
 
-    val WHERE_EMAIL = "email_address=:emailAddress"
+    val WHERE_EMAIL = " AND email_address={emailAddress} "
     val SELECT_BY_EMAIL = SELECT_SQL.concat(WHERE_EMAIL)
     override def selectByEmail(email: String)(implicit conn: Connection) = {
         SQL(SELECT_BY_EMAIL)

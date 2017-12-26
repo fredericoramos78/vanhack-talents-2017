@@ -20,3 +20,21 @@
 
 // Custom styles
 @import "custom";
+
+
+.version-number { font-style: italic; }
+
+.header-user { margin-bottom: 15px; }
+
+.info-icon { margin-left: 5px; }
+.help-icon {
+  margin-left: 5px;
+  vertical-align: super;
+  font-size: 75%;
+}
+
+button {
+  &.last-inline {
+    margin-left: 3px;
+  }
+}
