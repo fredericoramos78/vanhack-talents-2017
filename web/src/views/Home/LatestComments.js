@@ -1,75 +1,47 @@
 import React, {Component} from 'react';
 import {Card, CardBody, CardTitle} from 'reactstrap';
 
+import SingleTopic from './SingleTopic';
+
+import AjaxInterface from "../Utils/AjaxInterface";
+
 
 class LatestComments extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            lastCommentedTopics: [],
+        };
+    }
+
+    componentWillMount() {
+        const resourceUrl = 'api/topics/search/latest.json';
+        const self = this;
+        AjaxInterface.get(resourceUrl)
+            .then(function(response) {
+                self.setState({
+                    lastCommentedTopics: response.data || []
+                });
+            });
+    }
+
+    renderEachItem() {
+        if (this.state.lastCommentedTopics === undefined || this.state.lastCommentedTopics.length === 0) {
+            return (<h5>There are no topics open yet!</h5>);
+        } else {
+            return this.state.lastCommentedTopics.map((eachTopic) =>
+                <SingleTopic key={eachTopic.id} topicInfo={eachTopic} showCommentsCount={false}/>
+            );
+        }
+    }
 
     render() {
         return (
             <Card>
                 <CardBody>
-                    <CardTitle>Latest comments</CardTitle>
-
-                    <div className="message">
-                        <div className="py-3 pb-5 mr-3 float-left">
-                            <div className="avatar">
-                                <img src={'img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com"/>
-                                <span className="avatar-status badge-success"></span>
-                            </div>
-                        </div>
-                        <div>
-                            <small className="text-muted">Lukasz Holeczek</small>
-                            <small className="text-muted float-right mt-1">
-                                21-dec @ 10:21
-                            </small>
-                        </div>
-                        <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-                        <small className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incididunt...
-                        </small>
-                    </div>
-                    <hr/>
-                    <div className="message">
-                        <div className="py-3 pb-5 mr-3 float-left">
-                            <div className="avatar">
-                                <img src={'img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com"/>
-                                <span className="avatar-status badge-success"></span>
-                            </div>
-                        </div>
-                        <div>
-                            <small className="text-muted">Lukasz Holeczek</small>
-                            <small className="text-muted float-right mt-1">
-                                21-dec @ 10:31
-                            </small>
-                        </div>
-                        <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-                        <small className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incididunt...
-                        </small>
-                    </div>
-                    <hr/>
-                    <div className="message">
-                        <div className="py-3 pb-5 mr-3 float-left">
-                            <div className="avatar">
-                                <img src={'img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com"/>
-                                <span className="avatar-status badge-success"></span>
-                            </div>
-                        </div>
-                        <div>
-                            <small className="text-muted">Lukasz Holeczek</small>
-                            <small className="text-muted float-right mt-1">
-                                21-dec @ 10:51
-                            </small>
-                        </div>
-                        <div className="text-truncate font-weight-bold">Lorem ipsum dolor sit amet</div>
-                        <small className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                            eiusmod
-                            tempor incididunt...
-                        </small>
-                    </div>
-
+                    <CardTitle>Latest commented topics</CardTitle>
+                    {this.renderEachItem()}
                 </CardBody>
             </Card>
         );

@@ -10,7 +10,9 @@ trait CommentRepository extends AsyncRepository {
 }
 
 class DummyCommentRepository extends CommentRepository {
+
+    override implicit val threadPool: ExecutionContext = null
+
     override def insert(comment: Comment, topicId: Long): Future[Option[Comment]] = Future.successful(None)
     override def selectByTopic(topicId: Long, offset: Int, limit: Int): Future[Seq[Comment]] = Future.successful(Seq.empty)
-    override implicit val threadPool: ExecutionContext = null
 }

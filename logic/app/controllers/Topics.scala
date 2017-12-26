@@ -27,7 +27,7 @@ class TopicsController @Inject() (mcc: MessagesControllerComponents, conf: Confi
 
     def putTopic() = Action.async(parse.json) { request =>
         request.body.validate[CreateTopicForm](CreateTopicForm.JSON_READER).map { form =>
-            topicService.createTopic(new Topic(form.title, form.userId)).map { t =>
+            topicService.createTopic(new Topic(form.title, form.question, form.userId)).map { t =>
                 Ok(Json.toJson(t))
             } recover {
                 case ex: Throwable => this.answerWithError(ex)
@@ -51,7 +51,7 @@ class TopicsController @Inject() (mcc: MessagesControllerComponents, conf: Confi
         }
     }
 
-    def getHotTopics() = Action.async(parse.json) { request =>
+    def getHotTopics() = Action.async { request =>
         topicService.listHotTopics().map { t =>
             Ok(Json.toJson(t))
         } recover {
@@ -59,7 +59,7 @@ class TopicsController @Inject() (mcc: MessagesControllerComponents, conf: Confi
         }
     }
 
-    def getLatestTopics() = Action.async(parse.json) { request =>
+    def getLatestTopics() = Action.async { request =>
         topicService.listLatestTopics().map { t =>
             Ok(Json.toJson(t))
         } recover {

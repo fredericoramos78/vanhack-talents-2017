@@ -15,5 +15,5 @@ class ExecutionContexts @Inject()(actorSystem: ActorSystem) {
 
     val CONTROLLERS_THREADPOOL = new CustomExecutionContext(actorSystem, CONTROLLERS_THREADPOOL_NAME) {}
     val SERVICES_THREADPOOL = new CustomExecutionContext(actorSystem, SERVICES_THREADPOOL_NAME) {}
-    val REPOS_THREADPOOL = new CustomExecutionContext(actorSystem, REPOS_THREADPOOL_NAME) {}
+    val ES_REPOS_THREADPOOL = new CustomExecutionContext(actorSystem, REPOS_THREADPOOL_NAME) {}
 }

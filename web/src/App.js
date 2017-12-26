@@ -20,18 +20,9 @@ import Footer from './views/Template/Footer/';
 // Layout components
 import Home from './views/Home/';
 import SearchResults from './views/Search/';
-import RulesList from './views/Rules/';
 // Other views
 import Page404 from './views/Pages/Page404/';
 import Page500 from './views/Pages/Page500/';
-
-// Initializing calendar
-import BigCalendar from 'react-big-calendar';
-import moment from 'moment';
-
-BigCalendar.setLocalizer(
-    BigCalendar.momentLocalizer(moment)
-);
 
 
 
@@ -64,7 +55,6 @@ class App extends Component {
                                 <Switch>
                                     <Route exact path="/home" component={Home}/>
                                     <Route exact path="/search" component={SearchResults}/>
-                                    <Route exact path="/rules" component={RulesList}/>
                                     // error pages
                                     <Route exact path="/404" name="Page 404" component={Page404}/>
                                     <Route exact path="/500" name="Page 500" component={Page500}/>

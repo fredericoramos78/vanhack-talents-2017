@@ -8,16 +8,17 @@ object User {
 
     implicit val JSON_USER_FORMATTER = (
         (__ \ "id").formatNullable[Long] ~
+        (__ \ "avatarId").format[Long] ~
         (__ \ "fullName").format[String] ~
         (__ \ "emailAddress").format[String]
     )(jsonApply _, unlift(jsonUnapply))
 
-    private[this] def jsonApply(id: Option[Long], fullName: String, emailAddress: String) = {
+    private[this] def jsonApply(id: Option[Long], avatarId: Long, fullName: String, emailAddress: String) = {
         new User(id, fullName, emailAddress)
     }
 
-    private[this] def jsonUnapply(u: User): Option[(Option[Long], String, String)] =
-        Some( (u.id, u.fullName, u.emailAddress) )
+    private[this] def jsonUnapply(u: User): Option[(Option[Long], Long, String, String)] =
+        Some( (u.id, u.id.map(_%8).getOrElse(0L), u.fullName, u.emailAddress) )
 }
 
 class User(val id: Option[Long], val fullName: String, val emailAddress: String) extends AnyModel {

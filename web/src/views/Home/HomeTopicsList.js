@@ -5,23 +5,8 @@ import HotTopics from './HotTopics';
 import LatestComments from "./LatestComments";
 import UserQuestions from './UserQuestions';
 
-class HomeTopicsList extends Component {
 
-    componentDidMount() {
-        if (this.props.isLoggedIn) {
-            let resourceUrl = 'http://localhost:9000/api/topics/user/' + this.props.userId + '/latest.json';
-            fetch(resourceUrl, { method: 'GET' })
-                .then(function(response) {
-                    console.log(response);
-                });
-        } else {
-            let resourceUrl = 'http://localhost:9000/api/topics/search/latest.json';
-            fetch(resourceUrl, { method: 'GET' })
-                .then(function(response) {
-                    console.log(response);
-                });
-        }
-    }
+class HomeTopicsList extends Component {
 
     render() {
         if (this.props.isLoggedIn) {

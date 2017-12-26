@@ -1,8 +1,18 @@
 import React, {Component} from 'react';
 import {Card, CardBody, CardTitle} from 'reactstrap';
 
+import AjaxInterface from "../Utils/AjaxInterface";
+
 
 class UserQuestions extends Component {
+
+    componentDidMount() {
+        var resourceUrl = '/api/topics/user/'+this.props.userId+'/latest.json';
+        AjaxInterface.get(resourceUrl)
+            .then(function(response) {
+                console.log(response);
+            });
+    }
 
     render() {
         return (
